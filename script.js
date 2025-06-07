@@ -13,6 +13,8 @@ function createGrid(size) {
         const cell = document.createElement('div');
         cell.classList.add('cell');
 
+      
+
         cell.dataset.darken = '0';
         cell.dataset.rgb = '';
 
@@ -43,3 +45,15 @@ function createGrid(size) {
     }
 }
 
+document.getElementById('resize-button').addEventListener('click', () => {
+  let input = prompt("Enter number of squares per side (max 100):");
+  let size = parseInt(input);
+
+  if (!isNaN(size) && size > 0 && size <= 100) {
+    createGrid(size);
+  } else {
+    alert("⚠️ Please enter a valid number between 1 and 100.");
+  }
+});
+
+createGrid(16);
